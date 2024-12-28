@@ -1,0 +1,27 @@
+{
+    // Используйте IntelliSense, чтобы узнать о возможных атрибутах.
+    // Наведите указатель мыши, чтобы просмотреть описания существующих атрибутов.
+    // Для получения дополнительной информации посетите: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug (Qemu)",
+            "cwd": "${workspaceFolder}",
+            "executable": "main.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "runToEntryPoint": "_start",
+            //"device": "STM32F103xx",
+            "servertype": "qemu",
+            "cpu": "cortex-m4",
+            //"machine":"lm3s6965evb",
+            "machine": "netduinoplus2",
+            "showDevDebugOutput":"none",
+            "svdFile": "svd/STM32F405.svd",
+            "preLaunchTask": "build",
+            //"serverpath": null,
+            "serverArgs": ["-d", "in_asm,cpu_reset,page,strace,int"],
+           // "serverArgs": ["-d", "in_asm,cpu_reset,page,strace,int", "-action", "panic=pause", "-no-shutdown"],
+        }
+    ]
+}

@@ -1,0 +1,9 @@
+{
+    "recommendations": [
+        "dan-c-underwood.arm",
+        "trond-snekvik.gnu-mapfiles",
+        "keroc.hex-fmt",
+        "zixuanwang.linkerscript",
+        "marus25.cortex-debug"
+    ]
+}

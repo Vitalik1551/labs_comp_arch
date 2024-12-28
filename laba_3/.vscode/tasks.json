@@ -1,0 +1,73 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "process",
+            "command": "make",
+            //"args": ["--debug"],
+            "icon": {"id":"file-binary"},
+            "group": "build",
+            "presentation": {
+                // Reveal the output only if unrecognized errors occur.
+                "reveal": "silent",
+                "revealProblems": "onProblem"
+            },
+            "problemMatcher": [
+                //"$gcc",
+                {
+                    "owner": "gcc",
+                    "fileLocation": [
+                        "autoDetect",
+                        "${cwd}"
+                    ],
+                    "pattern": {
+                        "regexp": "^(.*?):(\\d+):(\\d*):?\\s+(?:fatal\\s+)?(warning|error):\\s+(.*)$",
+                        "file": 1,
+                        "line": 2,
+                        "column": 3,
+                        "severity": 4,
+                        "message": 5
+                    }
+                },
+                {
+                    "owner": "ARMASM",
+                    "fileLocation":[
+                        "autoDetect",
+                        "${workspaceFolder}"
+                    ],
+                    "pattern": {
+                        //"regexp": "^(.*?):(\\d+):(\\d*):?\\s+(?:fatal\\s+)?(warning|error):\\s+(.*)$",
+                        "regexp": "^(.*?):(\\d+):?\\s([Ee]rror|[Ww]arning)\\s*:\\s+(.+)$",
+                        "file": 1,
+                        "line": 2,
+                        //"location": 2,
+                        "severity": 3,
+                        "message": 4,
+                    }
+                },
+                // TODO: make errors
+                //{
+                //    "owner": "make",
+                //    "pattern": {
+                //        "regexp": ""
+                //    }
+                //}
+            ],
+        },
+        {
+            "label": "clean",
+            "type": "process",
+            "command": "make",
+            "args":["clean"],
+            "icon": {"id":"trash"},
+            "group":"none",
+            "presentation": {
+                // Reveal the output only if unrecognized errors occur.
+                "reveal": "silent"
+            },
+        }
+    ]
+}
